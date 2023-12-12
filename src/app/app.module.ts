@@ -16,7 +16,6 @@ import { DataTablesModule } from 'angular-datatables';
 import { ReservationComponent } from './reservations/reservation/reservation.component';
 import { AddReservationComponent } from './reservations/add-reservation/add-reservation.component';
 import { ToastModule } from 'primeng/toast';
-
 import { AcademicYearPipe } from './academic-year.pipe';
 
 import { AjouterUniversiteComponent } from './universite/ajouter-universite/ajouter-universite.component';
@@ -35,9 +34,6 @@ import { MessageErreurComponent } from './shared/message-erreur/message-erreur.c
 import { HighlightDirective } from './directive/highlight.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { PopupComponent } from './universite/popup/popup.component';
-
-import { HomeComponent } from './home/home.component';
-import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NgToastModule } from 'ng-angular-popup';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -46,22 +42,10 @@ import { EditFoyerComponent } from './foyer/edit-foyer/edit-foyer.component';
 import { HomeFoyerComponent } from './foyer/home-foyer/home-foyer.component';
 import { AddFoyerComponent } from './foyer/add-foyer/add-foyer.component';
 import { FoyerService } from './services/foyer.service';
-import { DetailsFoyerComponent } from './foyer/details-foyer/details-foyer.component';
-import { DetailComponent } from './foyer/detail/detail.component';
 
 import { FoyerModule } from './foyer/foyer/foyer.module';
 
-
-
-
-import { ManageUserModule } from './manageUser/module/manage-user/manage-user.module';
-
-
-
-import { DetailsBlocComponent } from './manage-bloc/details-bloc/details-bloc.component';
 import { AddBlocDirectiveDirective } from './add-bloc-directive.directive';
-
-import { LoginRegisterComponent } from './Authentication/login-register/login-register.component';
 import { ChambreRouteModule } from './chambre/chambre-route/chambre-route.module';
 import { ChambreRouteRoutingModule } from './chambre/chambre-route/chambre-route-routing.module';
 import { UniversiteRootModule } from './universite/universite-root/universite-root.module';
@@ -83,8 +67,7 @@ import { UniversiteRootModule } from './universite/universite-root/universite-ro
     AddFoyerComponent,
     EditFoyerComponent,
     HomeFoyerComponent,
-    DetailsFoyerComponent,
-    DetailComponent,
+
     MessageErreurComponent,
     AddBlocComponent,
     DeleteBlocComponent,
@@ -96,18 +79,11 @@ import { UniversiteRootModule } from './universite/universite-root/universite-ro
     HighlightDirective,
     CapitalizePipe,
     PopupComponent,
-    LoginRegisterComponent,
-    HomeComponent,
-
-
     CouleurDirective,
     HighlightDirective,
     EditFoyerComponent,
     HomeFoyerComponent,
     AddBlocDirectiveDirective
-    ,DetailsBlocComponent
-
-
   ],
   imports: [
     BrowserModule,
@@ -121,7 +97,6 @@ import { UniversiteRootModule } from './universite/universite-root/universite-ro
     NgToastModule,
     BrowserAnimationsModule,
     ToastModule,
-    ManageUserModule,
     ChambreRouteRoutingModule,
     UniversiteRootModule
 
@@ -130,11 +105,7 @@ import { UniversiteRootModule } from './universite/universite-root/universite-ro
 
 
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+
   ],
   bootstrap: [AppComponent],
 })

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +7,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class NavbarComponent {
   constructor(
-    private auth: AuthService
   ) {}
-logOut() {
-  this.auth.signOut();
-}
+
 
 }

@@ -1,17 +1,15 @@
-<!-- chambre-modification.component.html -->
-<app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
+
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
             <form (ngSubmit)="updateFoyer()" #foyerForm="ngForm" class="foyer-form" novalidate>
                 <label>ID Foyer: </label>
                 <input type="text" [(ngModel)]="foyer.idFoyer" name="idFoyer" class="form-control" disabled>
-  
+
                 <div class="form-group">
                   <label for="nomFoyer" class="form-label">Nom foyer</label>
                   <input type="text" id="nomFoyer" class="form-control" [(ngModel)]="foyer.nomFoyer" name="nomFoyer" pattern="^[a-zA-Z\s]+$" required>
-        
+
                     <div *ngIf="foyerForm.controls['nomFoyer'].hasError('required') && (foyerForm.controls['nomFoyer'].dirty || foyerForm.controls['nomFoyer'].touched)"
                     class="error-message">
                     <div *ngIf="foyerForm.controls['nomFoyer'].errors?.['required']">
@@ -20,11 +18,11 @@
                     <div *ngIf="foyerForm.controls['nomFoyer'].errors?.['pattern']">
                       Le nom doit contenir uniquement des lettres minuscules ou majuscules.
                     </div>
-               
+
                   </div>
-        
+
                 </div>
-  
+
                 <div class="form-group">
                   <label for="capaciteFoyer" class="form-label">Capacité Foyer</label>
                   <input type="number" id="capaciteFoyer" class="form-control" [(ngModel)]="foyer.capaciteFoyer" name="capaciteFoyer" required min="101">
@@ -38,9 +36,9 @@
                     </div>
                   </div>
                 </div>
-              
+
                 <!-- Other input fields for chambre properties -->
-  
+
                 <button type="submit" class="btn btn-success btn-block" [disabled]="foyerForm.invalid">Save Change</button>
 <div *ngIf="foyerForm.invalid" class="error-message">
   Veuillez remplir le formulaire correctement avant de soumettre.
@@ -50,4 +48,3 @@
         </div>
     </div>
   </div>
-  

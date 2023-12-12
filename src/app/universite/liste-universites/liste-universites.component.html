@@ -1,6 +1,5 @@
 <div >
-  <app-bar-side></app-bar-side>
-  <app-navbar></app-navbar>
+
   <!-- Ajoutez la liaison vers le fichier Bootstrap CSS dans votre fichier index.html -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Ajoutez la liaison vers le fichier Font Awesome CSS dans votre fichier index.html -->
@@ -14,24 +13,9 @@
         <button class="btn btn-success mb-3" (click)="navigateToAjouter()">
           <i class="fas fa-plus"></i> Ajouter une Université
         </button>
-        <button class="btn btn-info mb-3" (click)="navigateToDetails()">
-          <i class="fas fa-info-circle"></i>  Autres Détails des Universités
-        </button>
-        <button class="btn btn-secondary mb-3" (click)="navigateToUniversites()">
-          <i class="fas fa-list"></i> Universités Show
-        </button>
+
       </div>
 
-        <div class="mb-3">
-          <label for="adresse">Rechercher par adresse:</label>
-          <div class="input-group">
-            <input type="text" id="adresse" class="form-control" [(ngModel)]="adresseRecherchee" />
-            <div class="input-group-append">
-              <button class="btn btn-success" (click)="rechercherParAdresse()">Rechercher</button>
-              <button class="btn btn-danger" (click)="annulerRecherche()">Annuler la recherche</button>
-            </div>
-          </div>
-        </div>
 
         <div class="table-responsive" >
           <app-popup #popup (confirmed)="getUniversites()"></app-popup>
@@ -68,4 +52,3 @@
     </div>
   </div>
 
-</div>

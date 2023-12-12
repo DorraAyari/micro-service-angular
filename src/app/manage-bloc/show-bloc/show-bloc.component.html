@@ -1,9 +1,7 @@
-<div class=""><app-navbar></app-navbar>
 <!-- Ajoutez la liaison vers le fichier Bootstrap CSS dans votre fichier index.html -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 <!-- Ajoutez la liaison vers le fichier Font Awesome CSS dans votre fichier index.html -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-<app-sidebar></app-sidebar>
 
 <div class="content-page">
   <div class="content">
@@ -12,23 +10,6 @@
       <button class="btn btn-success mb-3" (click)="addBloc()">
         <i class="fas fa-plus"></i> Ajouter un Bloc
       </button>
-
-      <!-- Ajout du formulaire de recherche -->
-      <div class="table-responsive">
-        <div class="d-flex align-items-center mb-3"> <!-- Ajout de la classe "d-flex" pour afficher les éléments en ligne -->
-          <form (ngSubmit)="rechercherParNomBloc($event)" class="mr-2"> <!-- Utilisation de la classe "mr-2" pour ajouter un espace à droite -->
-            <input type="text" [(ngModel)]="nomBloc" name="nomBloc" placeholder="Nom du Bloc" />
-            <button type="submit" class="btn btn-primary ml-2">Rechercher</button> <!-- Ajout de la classe "ml-2" pour la marge à gauche -->
-          </form>
-
-          <button class="btn btn-secondary" (click)="sortByCapacity()">
-            Trier par Capacité
-          </button>
-          <button (click)="detailBloc()" class="btn btn-secondary btn-sm ml-3">
-            <i class="fas fa-info-circle"></i> Détails
-          </button>
-        </div>
-      </div>
 
       <!-- Affichage des résultats filtrés et de tous les blocs -->
       <div class="table-responsive">
@@ -62,4 +43,4 @@
             </ng-container>
           </tbody>
         </table>
-      </div></div>
+      </div>

@@ -1,6 +1,3 @@
-<div class="">
-  <app-bar-side></app-bar-side>
-  <app-navbar></app-navbar>
 
 <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -12,20 +9,7 @@
       <button class="btn btn-success mb-3" (click)="navigateToAjouter()">
         <i class="fas fa-plus"></i> Ajouter une chambre
       </button>
-      <!-- chambre.component.html -->
-      <div class="mb-3">
-        <label for="numeroChambreSearch">Recherche par numéro de chambre:</label>
-        <input type="number" id="numeroChambreSearch"
-          [(ngModel)]="numeroChambreSearch" class="form-control">
-        <button class="btn btn-primary" (click)="searchChambreByNumeroChambre()">Rechercher</button>
-      </div>
-      <div class="mb-3">
-  <label for="nomBlocSearch">Recherche par nom du bloc:</label>
-  <input type="text" id="nomBlocSearch" [(ngModel)]="nomBlocSearch" class="form-control">
-  <button class="btn btn-primary" (click)="searchChambresByBloc()">Rechercher par bloc</button>
-</div>
 
-      <button (click)="navigateToDetails()" class="btn btn-info btn-sm">Détails</button>
 
       <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover"
@@ -86,5 +70,5 @@
   </div>
 
 </div>
-</div>
+
 

@@ -26,19 +26,15 @@ import { AddBlocComponent } from './manage-bloc/add-bloc/add-bloc.component';
 import { UniversitesComponent } from './universite/universites/universites.component';
 
 
-import { LoginRegisterComponent } from './Authentication/login-register/login-register.component';
-import { HomeComponent } from './home/home.component';
-import { authGuard } from './guards/auth.guard';
-import { DetailsChambreComponent } from './chambre/details-chambre/details-chambre.component';
-import { DetailsBlocComponent } from './manage-bloc/details-bloc/details-bloc.component';
-
 import { NotfoundComponent } from './shared/notfound/notfound.component';
+import { AppComponent } from './app.component';
 
 
 
 
 const routes: Routes = [
 
+  { path: '', component: AppComponent },
 
   {path:'home-foyer',loadChildren:()=>import('../app/foyer/foyer/foyer.module').then((t)=>t.FoyerModule)},
 
@@ -49,11 +45,8 @@ const routes: Routes = [
 
 
 
-  {path:'auth',component:LoginRegisterComponent},
-
 
   //Manage Users
-  {path:'u',loadChildren:()=>import('../app/manageUser/module/manage-user/manage-user.module').then((t)=>t.ManageUserModule)},
 
 
   { path: 'gestionreservation', component: ReservationComponent },
@@ -121,7 +114,6 @@ const routes: Routes = [
   //   ]
   // }
 
-  {path:'home',component:HomeComponent,canActivate: [authGuard]},
 
 
   {path:'**',component:NotfoundComponent}

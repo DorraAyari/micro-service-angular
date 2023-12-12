@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { UniversiteRootRoutingModule } from './universite-root-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { AppComponent } from 'src/app/app.component';
 import { AjouterUniversiteComponent } from '../ajouter-universite/ajouter-universite.component';
 import { ListeUniversitesComponent } from '../liste-universites/liste-universites.component';
@@ -46,11 +45,7 @@ import { CapitalizePipe } from 'src/app/pipes copy/capitalize.pipe';
 
 
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+
   ],
   bootstrap: [AppComponent],
 })
