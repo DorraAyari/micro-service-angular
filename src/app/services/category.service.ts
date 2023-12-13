@@ -16,23 +16,23 @@ export class CategoryService {
 
 
   getChambres():Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.apiUrl}/produit/findAll`);
+    return this.http.get<Category[]>(`${this.apiUrl}/category/findAll`);
   }
     updateChambre(chambreId: number, updatedChambre: Category): Observable<Category> {
-    const url = `${this.apiUrl}/produit/update/${chambreId}`;
+    const url = `${this.apiUrl}/category/${chambreId}`;
     return this.http.put<Category>(url, updatedChambre);
   }
    // Add a method to get a chambre by ID
    getChambreById(chambreId: number): Observable<Category> {
-    const url = `${this.apiUrl}/produit/${chambreId}`;
+    const url = `${this.apiUrl}/category/${chambreId}`;
     return this.http.get<Category>(url);
   }
   deleteChambre(chambreId: number): Observable<void> {
-    const url = `${this.apiUrl}/produit/delete/${chambreId}`;
+    const url = `${this.apiUrl}/category/delete/${chambreId}`;
     return this.http.delete<void>(url);
   }
   ajouterChambre(newChambre: Category): Observable<Category> {
-    const url = `${this.apiUrl}/produit/add`;
+    const url = `${this.apiUrl}/category/add`;
     return this.http.post<Category>(url, newChambre);
   }
 

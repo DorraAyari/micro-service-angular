@@ -35,6 +35,9 @@ import { BlogModificationComponent } from './blog/blog-modification/blog-modific
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackAjouterComponent } from './feedback/feedback-ajouter/feedback-ajouter.component';
 import { FeedbackModifierComponent } from './feedback/feedback-modifier/feedback-modifier.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryAjouterComponent } from './category/category-ajouter/category-ajouter.component';
+import { CategoryModifierComponent } from './category/category-modifier/category-modifier.component';
 
 
 @NgModule({
@@ -55,6 +58,9 @@ import { FeedbackModifierComponent } from './feedback/feedback-modifier/feedback
              FeedbackComponent,
              FeedbackAjouterComponent,
              FeedbackModifierComponent,
+             CategoryComponent,
+             CategoryAjouterComponent,
+             CategoryModifierComponent,
   
 
   ],

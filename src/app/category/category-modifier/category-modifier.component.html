@@ -1,0 +1,34 @@
+<div class="content-page">
+  <div class="content">
+    <div class="container-fluid">
+      <form (ngSubmit)="updateChambre()" #chambreForm="ngForm" class="chambre-form" novalidate *ngIf="produit">
+        <div class="form-group">
+          <label>ID Blog:</label>
+          <input type="text" [(ngModel)]="produit.id" name="id" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+          <label>Titre:</label>
+          <input type="text" [(ngModel)]="produit.nameCategory" name="nameCategory" class="form-control" required>
+          <div *ngIf="chambreForm.controls['nameCategory'].hasError('required') && (chambreForm.submitted || chambreForm.controls['nameCategory'].touched)"
+            class="error-message">
+            Titre est requis.
+          </div>
+        </div>
+
+      
+
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea [(ngModel)]="produit.descriptionCategory" name="descriptionCategory" class="form-control" required></textarea>
+          <div *ngIf="chambreForm.controls['descriptionCategory'].hasError('required') && (chambreForm.submitted || chambreForm.controls['descriptionCategory'].touched)"
+            class="error-message">
+            Description est requis.
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+      </form>
+    </div>
+  </div>
+</div>

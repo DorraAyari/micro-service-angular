@@ -16,6 +16,9 @@ import { BlogModificationComponent } from './blog/blog-modification/blog-modific
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackModifierComponent } from './feedback/feedback-modifier/feedback-modifier.component';
 import { FeedbackAjouterComponent } from './feedback/feedback-ajouter/feedback-ajouter.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryAjouterComponent } from './category/category-ajouter/category-ajouter.component';
+import { CategoryModifierComponent } from './category/category-modifier/category-modifier.component';
 
 
 
@@ -43,7 +46,9 @@ const routes: Routes = [
   { path: 'listreport', component: ReportListComponent },
   { path: 'updatereport/:id', component: UpdateReportsComponent },  */
 
- 
+  {path:'category',component:CategoryComponent},
+  { path: 'category-modifier/:id', component: CategoryModifierComponent },
+  { path: 'category-ajouter', component: CategoryAjouterComponent},
   {path:'feedback',component:FeedbackComponent},
   { path: 'feedback-modifier/:id', component: FeedbackModifierComponent },
   { path: 'feedback-ajouter', component: FeedbackAjouterComponent},
