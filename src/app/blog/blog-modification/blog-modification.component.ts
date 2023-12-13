@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Produit } from 'src/app/models/produit';
-import { ProduitService } from 'src/app/services/produit.service';
+import { Blog } from 'src/app/models/blog';
+import { BlogService } from 'src/app/services/blog.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-chambre-modification',
-  templateUrl: './chambre-modification.component.html',
-  styleUrls: ['./chambre-modification.component.css']
+  selector: 'app-blog-modification',
+  templateUrl: './blog-modification.component.html',
+  styleUrls: ['./blog-modification.component.css']
 })
-export class ChambreModificationComponent implements OnInit {
+export class BlogModificationComponent {
 
-  produit!: Produit;
+  produit!: Blog;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private produitService: ProduitService,
+    private produitService: BlogService,
   ) { }
 
   ngOnInit(): void {
@@ -27,8 +27,8 @@ export class ChambreModificationComponent implements OnInit {
   }
 
   loadChambre(id: number): void {
-    this.produitService.getChambreById(id).subscribe(
-      (produit: Produit) => {
+    this.produitService.findById(id).subscribe(
+      (produit: Blog) => {
         this.produit = produit;
       
       
@@ -44,10 +44,10 @@ export class ChambreModificationComponent implements OnInit {
   updateChambre(): void {
     // Similar to the ajoutChambre method, handle the selectedBlocNom
 
-   
-    this.produitService.updateChambre(this.produit.idProduit, this.produit).subscribe(
-      (updatedChambre: Produit) => {
-        console.log('Produit updated successfully', updatedChambre);
+    this.produitService.updateBlog(this.produit,this.produit.idblog).subscribe(
+
+      (updatedChambre: Blog) => {
+        console.log('Blog updated successfully', updatedChambre);
         Swal.fire({
           title: 'Succès!',
           text: 'Produit mise à jour avec succès.',

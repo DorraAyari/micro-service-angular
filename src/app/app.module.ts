@@ -13,42 +13,25 @@ import {
 } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables';
-import { ReservationComponent } from './reservations/reservation/reservation.component';
-import { AddReservationComponent } from './reservations/add-reservation/add-reservation.component';
+
 import { ToastModule } from 'primeng/toast';
 import { AcademicYearPipe } from './academic-year.pipe';
 
-import { AjouterUniversiteComponent } from './universite/ajouter-universite/ajouter-universite.component';
-import { UniversiteService } from './services/universite.service';
-import { ListeUniversitesComponent } from './universite/liste-universites/liste-universites.component';
-import { DetailsUniversiteComponent } from './universite/details-universite/details-universite.component';
 
-import { AddBlocComponent } from './manage-bloc/add-bloc/add-bloc.component';
-import { DeleteBlocComponent } from './manage-bloc/delete-bloc/delete-bloc.component';
-import { EditBlocComponent } from './manage-bloc/edit-bloc/edit-bloc.component';
-import { ShowBlocComponent } from './manage-bloc/show-bloc/show-bloc.component';
-import { UniversitesComponent } from './universite/universites/universites.component';
-import { UniversitComponent } from './universite/universit/universit.component';
 import { CouleurDirective } from './directive/couleur.directive';
 import { MessageErreurComponent } from './shared/message-erreur/message-erreur.component';
 import { HighlightDirective } from './directive/highlight.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
-import { PopupComponent } from './universite/popup/popup.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { EditFoyerComponent } from './foyer/edit-foyer/edit-foyer.component';
-import { HomeFoyerComponent } from './foyer/home-foyer/home-foyer.component';
-import { AddFoyerComponent } from './foyer/add-foyer/add-foyer.component';
-import { FoyerService } from './services/foyer.service';
-
-import { FoyerModule } from './foyer/foyer/foyer.module';
-
 import { AddBlocDirectiveDirective } from './add-bloc-directive.directive';
 import { ChambreRouteModule } from './chambre/chambre-route/chambre-route.module';
 import { ChambreRouteRoutingModule } from './chambre/chambre-route/chambre-route-routing.module';
-import { UniversiteRootModule } from './universite/universite-root/universite-root.module';
+import { BlogComponent } from './blog/blog.component';
+import { BlogAjouterComponent } from './blog/blog-ajouter/blog-ajouter.component';
+import { BlogModificationComponent } from './blog/blog-modification/blog-modification.component';
 
 
 @NgModule({
@@ -58,32 +41,15 @@ import { UniversiteRootModule } from './universite/universite-root/universite-ro
     FooterComponent,
     BodyComponent,
     SidebarComponent,
-    ReservationComponent,
-    AddReservationComponent,
-    AcademicYearPipe,
-
-
-
-    AddFoyerComponent,
-    EditFoyerComponent,
-    HomeFoyerComponent,
-
-    MessageErreurComponent,
-    AddBlocComponent,
-    DeleteBlocComponent,
-    EditBlocComponent,
+    
+    
+   
     HighlightDirective,
-    ShowBlocComponent,
-    CouleurDirective,
-    MessageErreurComponent,
-    HighlightDirective,
-    CapitalizePipe,
-    PopupComponent,
-    CouleurDirective,
-    HighlightDirective,
-    EditFoyerComponent,
-    HomeFoyerComponent,
-    AddBlocDirectiveDirective
+             BlogComponent,
+             BlogAjouterComponent,
+             BlogModificationComponent,
+  
+
   ],
   imports: [
     BrowserModule,
@@ -93,12 +59,10 @@ import { UniversiteRootModule } from './universite/universite-root/universite-ro
     DataTablesModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    FoyerModule,
     NgToastModule,
     BrowserAnimationsModule,
     ToastModule,
-    ChambreRouteRoutingModule,
-    UniversiteRootModule
+    ChambreRouteRoutingModule
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

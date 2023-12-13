@@ -12,70 +12,35 @@ import {
 import Swal from 'sweetalert2';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
-import { HighlightDirective } from './highlightDirective.component';
 
 declare var $: any; // Déclaration de $ pour éviter les erreurs de TypeScript
 
 import { Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Produit } from '../models/produit';
-import { ProduitService } from '../services/produit.service';
-
-@Directive({
-  selector: '[appCustomDirective]'
-})
-export class CustomDirective {
-  constructor(
-    private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef
-  ) {}
-
-  @Input() set appCustomDirective(condition: boolean) {
-    if (condition) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    } else {
-      this.viewContainer.clear();
-    }
-  }
-}
-
+import { Blog } from '../models/blog';
+import { BlogService } from '../services/blog.service';
 @Component({
-  selector: 'app-chambre',
-  templateUrl: './chambre.component.html',
-  styleUrls: ['./chambre.component.css'],
-  template: `
-    
-    
-  `,
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.css']
 })
-
-export class ChambreComponent implements OnInit, AfterViewInit, OnDestroy {
-  @NgModule({
-    declarations: [
-      // ... other components and directives
-      HighlightDirective,
-    ],
-    // ... other module configuration
-  })
-
-  @ViewChild(DataTableDirective, { static: false })
-  dtElement: DataTableDirective | undefined;
-
+export class BlogComponent {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  dtElement: DataTableDirective | undefined;
 
-  chambres: Produit[] = [];
+  chambres: Blog[] = [];
   showDeleteModal = false;
   chambreToDeleteId!: number;
   dataTablesInstance: any;
   numeroChambreSearch: number | undefined;
   nomBlocSearch: string | undefined;
   constructor(
-    private chambreService: ProduitService,
+    private chambreService: BlogService,
     private router: Router,
     private cdRef: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
-    this.dtOptions = {
+    this.dtOptions= {
       destroy: true,
     };
 
@@ -114,7 +79,7 @@ export class ChambreComponent implements OnInit, AfterViewInit, OnDestroy {
   }
   
   getChambres(): void {
-    this.chambreService.getChambres().subscribe(
+    this.chambreService.findAll().subscribe(
       (chambres) => {
         console.log('Chambres:', chambres);
   
@@ -145,7 +110,7 @@ export class ChambreComponent implements OnInit, AfterViewInit, OnDestroy {
       cancelButtonText: 'Annuler',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.chambreService.deleteChambre(chambreId).subscribe(
+        this.chambreService.deleteBloc(chambreId).subscribe(
           () => {
             console.log('Chambre deleted successfully');
   
@@ -172,7 +137,8 @@ export class ChambreComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   navigateToAjouter(): void {
-    this.router.navigate(['/chambre/chambre-ajouter']);
+    this.router.navigate(['blog/add']);
   }
+
 
 }
