@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<div class="content-page">
+  <div class="content">
+    <div class="container-fluid">
+      <h2 class="mb-4 text-primary">Liste des Feedback</h2>
+      <button class="btn btn-success mb-3" (click)="navigateToAjouter()">
+        <i class="fas fa-plus"></i> Ajouter un Feedback
+      </button>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover" #FeedbackTable datatable [dtOptions]="dtOptions"
+          [dtTrigger]="dtTrigger">
+          <thead class="thead-custom">
+            <tr>
+              <th>ID Feedback</th>
+              <th>Nom</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let feedback of feedbackList">
+              <td>{{ feedback.id }}</td>
+              <td>{{ feedback.name }}</td>
+              <td>{{ feedback.description }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="navigateToModifier(feedback.id)">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteFeedback(feedback.id)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

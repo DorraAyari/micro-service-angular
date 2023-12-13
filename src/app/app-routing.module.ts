@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogAjouterComponent } from './blog/blog-ajouter/blog-ajouter.component';
 import { BlogModificationComponent } from './blog/blog-modification/blog-modification.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackModifierComponent } from './feedback/feedback-modifier/feedback-modifier.component';
+import { FeedbackAjouterComponent } from './feedback/feedback-ajouter/feedback-ajouter.component';
 
 
 
@@ -41,13 +44,18 @@ const routes: Routes = [
   { path: 'updatereport/:id', component: UpdateReportsComponent },  */
 
  
+  {path:'feedback',component:FeedbackComponent},
+  { path: 'feedback-modifier/:id', component: FeedbackModifierComponent },
+  { path: 'feedback-ajouter', component: FeedbackAjouterComponent},
+  {
+    path: 'chambre',
+    loadChildren: () => import('./chambre/chambre-route/chambre-route-routing.module').then(m => m.ChambreRouteRoutingModule)
+  },
 
 
-  {path:'blog', component:BlogComponent},
-  {path:'blog/:id',component:BlogModificationComponent},
-  {path:'blog/add',component:BlogAjouterComponent},
-  /*{path:'details',component:DetailsBlocComponent},*/
-
+  {path:'blog',component:BlogComponent},
+  { path: 'blog-modification/:id', component: BlogModificationComponent },
+  { path: 'blog-ajouter', component: BlogAjouterComponent},
   {
     path: 'chambre',
     loadChildren: () => import('./chambre/chambre-route/chambre-route-routing.module').then(m => m.ChambreRouteRoutingModule)

@@ -54,7 +54,7 @@ export class BlogModificationComponent {
           icon: 'success',
           confirmButtonText: 'OK'
         }).then(() => {
-          this.router.navigate(['/chambre']);
+          this.router.navigate(['/blog']);
         });
       },
       (error) => {

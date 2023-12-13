@@ -32,6 +32,9 @@ import { ChambreRouteRoutingModule } from './chambre/chambre-route/chambre-route
 import { BlogComponent } from './blog/blog.component';
 import { BlogAjouterComponent } from './blog/blog-ajouter/blog-ajouter.component';
 import { BlogModificationComponent } from './blog/blog-modification/blog-modification.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackAjouterComponent } from './feedback/feedback-ajouter/feedback-ajouter.component';
+import { FeedbackModifierComponent } from './feedback/feedback-modifier/feedback-modifier.component';
 
 
 @NgModule({
@@ -42,12 +45,16 @@ import { BlogModificationComponent } from './blog/blog-modification/blog-modific
     BodyComponent,
     SidebarComponent,
     
+
     
    
     HighlightDirective,
              BlogComponent,
              BlogAjouterComponent,
              BlogModificationComponent,
+             FeedbackComponent,
+             FeedbackAjouterComponent,
+             FeedbackModifierComponent,
   
 
   ],

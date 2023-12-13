@@ -96,7 +96,7 @@ export class BlogComponent {
     );
   }
   navigateToModifier(chambreId: number): void {
-    this.router.navigate(['/chambre/chambre-modification', chambreId]);
+    this.router.navigate(['/blog-modification', chambreId]);
   }
   deleteChambre(chambreId: number): void {
     Swal.fire({
@@ -137,7 +137,7 @@ export class BlogComponent {
   }
 
   navigateToAjouter(): void {
-    this.router.navigate(['blog/add']);
+    this.router.navigate(['/blog-ajouter']);
   }
 
 
