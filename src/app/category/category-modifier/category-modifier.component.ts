@@ -1,22 +1,24 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Blog } from 'src/app/models/blog';
-import { BlogService } from 'src/app/services/blog.service';
+import { DataTableDirective } from 'angular-datatables';
+import { Subject } from 'rxjs';
+import { Category } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-blog-modification',
-  templateUrl: './blog-modification.component.html',
-  styleUrls: ['./blog-modification.component.css']
+  selector: 'app-category-modifier',
+  templateUrl: './category-modifier.component.html',
+  styleUrls: ['./category-modifier.component.css']
 })
-export class BlogModificationComponent {
-
-  produit!: Blog;
+export class CategoryModifierComponent {
+  
+  produit!: Category;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private produitService: BlogService,
+    private produitService: CategoryService,
   ) { }
 
   ngOnInit(): void {
@@ -27,8 +29,8 @@ export class BlogModificationComponent {
   }
 
   loadChambre(id: number): void {
-    this.produitService.findById(id).subscribe(
-      (produit: Blog) => {
+    this.produitService.getChambreById(id).subscribe(
+      (produit: Category) => {
         this.produit = produit;
       
       
@@ -44,17 +46,17 @@ export class BlogModificationComponent {
   updateChambre(): void {
     // Similar to the ajoutChambre method, handle the selectedBlocNom
 
-    this.produitService.updateBlog(this.produit,this.produit.idblog).subscribe(
+    this.produitService.updateChambre(this.produit.id,this.produit).subscribe(
 
-      (updatedChambre: Blog) => {
-        console.log('Blog updated successfully', updatedChambre);
+      (updatedChambre: Category) => {
+        console.log('category updated successfully', updatedChambre);
         Swal.fire({
           title: 'Succès!',
           text: 'Produit mise à jour avec succès.',
           icon: 'success',
           confirmButtonText: 'OK'
         }).then(() => {
-          this.router.navigate(['/blog']);
+          this.router.navigate(['/category']);
         });
       },
       (error) => {

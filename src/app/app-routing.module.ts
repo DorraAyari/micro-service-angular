@@ -19,6 +19,12 @@ import { UpdatCurrencyComponent } from './currency/updat-currency/updat-currency
 import { ShowReclamationComponent } from './reclamation/show-reclamation/show-reclamation.component';
 import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
 import { AddReclamationComponent } from './reclamation/add-reclamation/add-reclamation.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackModifierComponent } from './feedback/feedback-modifier/feedback-modifier.component';
+import { FeedbackAjouterComponent } from './feedback/feedback-ajouter/feedback-ajouter.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryAjouterComponent } from './category/category-ajouter/category-ajouter.component';
+import { CategoryModifierComponent } from './category/category-modifier/category-modifier.component';
 
 
 
@@ -44,11 +50,21 @@ const routes: Routes = [
 
 
 
-  {path:'blog', component:BlogComponent},
-  {path:'blog/:id',component:BlogModificationComponent},
-  {path:'blog/add',component:BlogAjouterComponent},
-  /*{path:'details',component:DetailsBlocComponent},*/
+  {path:'category',component:CategoryComponent},
+  { path: 'category-modifier/:id', component: CategoryModifierComponent },
+  { path: 'category-ajouter', component: CategoryAjouterComponent},
+  {path:'feedback',component:FeedbackComponent},
+  { path: 'feedback-modifier/:id', component: FeedbackModifierComponent },
+  { path: 'feedback-ajouter', component: FeedbackAjouterComponent},
+  {
+    path: 'chambre',
+    loadChildren: () => import('./chambre/chambre-route/chambre-route-routing.module').then(m => m.ChambreRouteRoutingModule)
+  },
 
+
+  {path:'blog',component:BlogComponent},
+  { path: 'blog-modification/:id', component: BlogModificationComponent },
+  { path: 'blog-ajouter', component: BlogAjouterComponent},
   {
     path: 'chambre',
     loadChildren: () => import('./chambre/chambre-route/chambre-route-routing.module').then(m => m.ChambreRouteRoutingModule)

@@ -1,31 +1,29 @@
 import { Component } from '@angular/core';
-import { Blog } from 'src/app/models/blog';
-import { BlogService } from 'src/app/services/blog.service';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-blog-ajouter',
-  templateUrl: './blog-ajouter.component.html',
-  styleUrls: ['./blog-ajouter.component.css']
+  selector: 'app-category-ajouter',
+  templateUrl: './category-ajouter.component.html',
+  styleUrls: ['./category-ajouter.component.css']
 })
-export class BlogAjouterComponent {
+export class CategoryAjouterComponent {
 
-  nouveauBlog: Blog = {
-    idblog: 0,
-    commet: '',
-    titre: '',
-    description: ''
-  };
+  nouveauBlog: Category = {
+    id: 0,
+    nameCategory: '',
+    descriptionCategory: ''  };
 
   constructor(
     private router: Router,
-    private blogService: BlogService,
+    private blogService: CategoryService,
   ) { }
 
   ajouterBlog(): void {
-    this.blogService.addBloc(this.nouveauBlog).subscribe(
-      (addedBlog: Blog) => {
+    this.blogService.ajouterChambre(this.nouveauBlog).subscribe(
+      (addedBlog: Category) => {
         console.log('Blog added successfully', addedBlog);
         Swal.fire({
           title: 'Success!',
@@ -48,3 +46,4 @@ export class BlogAjouterComponent {
     );
   }
 }
+

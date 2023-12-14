@@ -1,41 +1,29 @@
-
-import { Router } from '@angular/router';
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  OnDestroy,
-  ViewChild,
-  ChangeDetectorRef,
-  NgModule,
-} from '@angular/core';
-import Swal from 'sweetalert2';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
+import { Category } from '../models/category';
+import { Router } from '@angular/router';
+import { CategoryService } from '../services/category.service';
+import Swal from 'sweetalert2';
 
-declare var $: any; // Déclaration de $ pour éviter les erreurs de TypeScript
-
-import { Directive, ElementRef, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Blog } from '../models/blog';
-import { BlogService } from '../services/blog.service';
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class BlogComponent {
+export class CategoryComponent {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
   dtElement: DataTableDirective | undefined;
 
-  chambres: Blog[] = [];
+  chambres: Category[] = [];
   showDeleteModal = false;
   chambreToDeleteId!: number;
   dataTablesInstance: any;
   numeroChambreSearch: number | undefined;
   nomBlocSearch: string | undefined;
   constructor(
-    private chambreService: BlogService,
+    private chambreService: CategoryService,
     private router: Router,
     private cdRef: ChangeDetectorRef
   ) {}
@@ -79,7 +67,7 @@ export class BlogComponent {
   }
   
   getChambres(): void {
-    this.chambreService.findAll().subscribe(
+    this.chambreService.getChambres().subscribe(
       (chambres) => {
         console.log('Chambres:', chambres);
   
@@ -96,12 +84,12 @@ export class BlogComponent {
     );
   }
   navigateToModifier(chambreId: number): void {
-    this.router.navigate(['/blog-modification', chambreId]);
+    this.router.navigate(['/category-modifier', chambreId]);
   }
   deleteChambre(chambreId: number): void {
     Swal.fire({
       title: 'Confirmation',
-      text: 'Voulez-vous vraiment supprimer cette chambre ?',
+      text: 'Voulez-vous vraiment supprimer cette cca ?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -110,14 +98,11 @@ export class BlogComponent {
       cancelButtonText: 'Annuler',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.chambreService.deleteBloc(chambreId).subscribe(
+        this.chambreService.deleteChambre(chambreId).subscribe(
           () => {
             console.log('Chambre deleted successfully');
   
-            // Recharger les données DataTables
-            if (this.dataTablesInstance) {
-              this.dataTablesInstance.destroy();
-            }
+          
             // Reload DataTables data
             this.getChambres();
           },
@@ -137,7 +122,7 @@ export class BlogComponent {
   }
 
   navigateToAjouter(): void {
-    this.router.navigate(['/blog-ajouter']);
+    this.router.navigate(['/category-ajouter']);
   }
 
 

@@ -1,1 +1,41 @@
-<p>blog-ajouter works!</p>
+<div class="content-page">
+  <div class="content">
+    <div class="container-fluid">
+      <form (ngSubmit)="ajouterBlog()" #ajouterForm="ngForm" class="blog-form" novalidate>
+        <div class="form-group">
+          <label>ID Blog:</label>
+          <input type="text" [(ngModel)]="nouveauBlog.idblog" name="idblog" class="form-control" disabled>
+        </div>
+
+        <div class="form-group">
+          <label>Titre:</label>
+          <input type="text" [(ngModel)]="nouveauBlog.titre" name="titre" class="form-control" required>
+          <div *ngIf="ajouterForm.controls['titre'].hasError('required') && (ajouterForm.submitted || ajouterForm.controls['titre'].touched)"
+            class="error-message">
+            Titre est requis.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Commentaire:</label>
+          <textarea [(ngModel)]="nouveauBlog.commet" name="commet" class="form-control" required></textarea>
+          <div *ngIf="ajouterForm.controls['commet'].hasError('required') && (ajouterForm.submitted || ajouterForm.controls['commet'].touched)"
+            class="error-message">
+            Commentaire est requis.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea [(ngModel)]="nouveauBlog.description" name="description" class="form-control" required></textarea>
+          <div *ngIf="ajouterForm.controls['description'].hasError('required') && (ajouterForm.submitted || ajouterForm.controls['description'].touched)"
+            class="error-message">
+            Description est requis.
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Ajouter Blog</button>
+      </form>
+    </div>
+  </div>
+</div>

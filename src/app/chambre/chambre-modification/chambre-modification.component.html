@@ -18,20 +18,15 @@
                 class="error-message">
                 Description Produit est requis.
               </div>
-              <div *ngIf="chambreForm.controls['typeChambre'].hasError('required') && (chambreForm.submitted || chambreForm.controls['typeChambre'].touched)"
-                class="error-message">
-                Type Chambre est requis.
-              </div>
-              <label><Div></Div>Prix Produit: </label>
+             
+              <label>Prix Produit: </label>
               <input type="number" [(ngModel)]="produit.prixProduit" name="prixProduit" class="form-control" required>
-              <div *ngIf="chambreForm.controls['prixProduit'].hasError('required') && (chambreForm.submitted || chambreForm.controls['prixProduit'].touched)"
-                class="error-message">
-                Description Produit est requis.
-              </div>
               <div *ngIf="chambreForm.controls['prixProduit'].hasError('required') && (chambreForm.submitted || chambreForm.controls['prixProduit'].touched)"
                 class="error-message">
                 Prix Produit est requis.
               </div>
+              
+              
               <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
           </form>
       </div>

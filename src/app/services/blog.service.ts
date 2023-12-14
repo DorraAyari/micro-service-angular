@@ -20,7 +20,7 @@ export class BlogService {
   }
 
   deleteBloc(idBloc: number) {
-    return this.http.delete(this.baseUrl + "delete/" + idBloc);
+    return this.http.delete(this.baseUrl + "deleteBlog/" + idBloc);
   }
 
 
