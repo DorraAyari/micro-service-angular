@@ -32,6 +32,13 @@ import { ChambreRouteRoutingModule } from './chambre/chambre-route/chambre-route
 import { BlogComponent } from './blog/blog.component';
 import { BlogAjouterComponent } from './blog/blog-ajouter/blog-ajouter.component';
 import { BlogModificationComponent } from './blog/blog-modification/blog-modification.component';
+import { ShowCurrencyComponent } from './currency/show-currency/show-currency.component';
+import { UpdatCurrencyComponent } from './currency/updat-currency/updat-currency.component';
+import { AddCurrencyComponent } from './currency/add-currency/add-currency.component';
+import { ShowReclamationComponent } from './reclamation/show-reclamation/show-reclamation.component';
+import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
+import { AddReclamationComponent } from './reclamation/add-reclamation/add-reclamation.component';
+
 
 
 @NgModule({
@@ -41,15 +48,17 @@ import { BlogModificationComponent } from './blog/blog-modification/blog-modific
     FooterComponent,
     BodyComponent,
     SidebarComponent,
-    
-    
-   
     HighlightDirective,
              BlogComponent,
              BlogAjouterComponent,
              BlogModificationComponent,
-  
-
+             ShowCurrencyComponent,
+             UpdatCurrencyComponent,
+             AddCurrencyComponent,
+             ShowReclamationComponent,
+             UpdateReclamationComponent,
+             AddReclamationComponent,
+             
   ],
   imports: [
     BrowserModule,
@@ -59,6 +68,7 @@ import { BlogModificationComponent } from './blog/blog-modification/blog-modific
     DataTablesModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    DataTablesModule,
     NgToastModule,
     BrowserAnimationsModule,
     ToastModule,

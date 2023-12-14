@@ -1,0 +1,38 @@
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+          <form (ngSubmit)="updateChambre()" #chambreForm="ngForm" class="chambre-form" novalidate *ngIf="Currency">              <label>ID Chambre: </label>
+                <input type="text" [(ngModel)]="Currency.id" name="idProduct" class="form-control" disabled>
+  
+                <label>Nom Currency: </label>
+                <input type="text" [(ngModel)]="Currency.name" name="name" class="form-control" required>
+                <div *ngIf="chambreForm.controls['name'].hasError('required') && (chambreForm.submitted || chambreForm.controls['name'].touched)"
+                  class="error-message">
+                  nom Currency est requis.
+                </div>
+  
+                <label><Div></Div>symbol Currency: </label>
+                <input type="text" [(ngModel)]="Currency.symbol" name="code" class="form-control" required>
+                <div *ngIf="chambreForm.controls['symbol'].hasError('required') && (chambreForm.submitted || chambreForm.controls['symbol'].touched)"
+                  class="error-message">
+                  symbol Currency est requis.
+                </div>
+
+                
+                <label>code Currency: </label>
+                <input type="text" [(ngModel)]="Currency.code" name="code" class="form-control" required>
+                <div *ngIf="chambreForm.controls['code'].hasError('required') && (chambreForm.submitted || chambreForm.controls['code'].touched)"
+                  class="error-message">
+                  code Currency est requis.
+                </div>
+
+               
+               
+                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  

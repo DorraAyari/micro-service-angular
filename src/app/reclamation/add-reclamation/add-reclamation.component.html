@@ -1,0 +1,30 @@
+<div class="content-page">
+    <div class="content">
+      <div class="container-fluid">
+        <form (ngSubmit)="ajouterChambre()" #produitForm="ngForm" class="produit-form" novalidate>
+          
+  
+          <div>
+            <label>Titre Reclamation: </label>
+            <input type="text" [(ngModel)]="newChambre.titreReclamation" name="titreReclamation" class="form-control" required>
+            <div *ngIf="produitForm.controls['titreReclamation'].hasError('required') && (produitForm.submitted || produitForm.controls['titreReclamation'].touched)"
+              class="error-message">
+              Titre Reclamation est requis.
+            </div>
+          </div>
+  
+          <div>
+            <label>descriptionRec reclamation: </label>
+            <input type="text" [(ngModel)]="newChambre.descriptionRec" name="descriptionRec" class="form-control" required>
+            <div *ngIf="produitForm.controls['descriptionRec'].hasError('required') && (produitForm.submitted || produitForm.controls['descriptionRec'].touched)"
+              class="error-message">
+              descriptionRec reclamation est requis.
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary btn-block">Ajouter reclamation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -13,6 +13,12 @@ import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogAjouterComponent } from './blog/blog-ajouter/blog-ajouter.component';
 import { BlogModificationComponent } from './blog/blog-modification/blog-modification.component';
+import { ShowCurrencyComponent } from './currency/show-currency/show-currency.component';
+import { AddCurrencyComponent } from './currency/add-currency/add-currency.component';
+import { UpdatCurrencyComponent } from './currency/updat-currency/updat-currency.component';
+import { ShowReclamationComponent } from './reclamation/show-reclamation/show-reclamation.component';
+import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
+import { AddReclamationComponent } from './reclamation/add-reclamation/add-reclamation.component';
 
 
 
@@ -24,23 +30,18 @@ const routes: Routes = [
 
 
 
+  {path:'reclamation', component:ShowReclamationComponent},
+  {path:'update-reclamation/:id',component:UpdateReclamationComponent},
+  {path:'addreclamation',component:AddReclamationComponent},
+
 
 
   
- // { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  // {path : 'ajouterUniversite', component : AjouterUniversiteComponent},
-  // {path : 'ajouterUniversite/:id', component : AjouterUniversiteComponent},
-  // {path : 'detailsUniversites' , component : DetailsUniversiteComponent},
-  // {path : 'universites' , component : UniversitesComponent},
-  // { path : 'showUniversites' , component : ListeUniversitesComponent},
+  {path:'currency', component:ShowCurrencyComponent},
+  {path:'updatecurrency/:id',component:UpdatCurrencyComponent},
+  {path:'addcurrency',component:AddCurrencyComponent},
 
-
-/*   { path: 'reporting', component: ReportRoomComponent },
-  { path: 'listreport', component: ReportListComponent },
-  { path: 'updatereport/:id', component: UpdateReportsComponent },  */
-
- 
 
 
   {path:'blog', component:BlogComponent},
@@ -52,15 +53,6 @@ const routes: Routes = [
     path: 'chambre',
     loadChildren: () => import('./chambre/chambre-route/chambre-route-routing.module').then(m => m.ChambreRouteRoutingModule)
   },
-
-  // {
-  //   path : 'showUniversites' , component : ListeUniversitesComponent , children : [
-  //     {path : 'ajouterUniversite', component : AjouterUniversiteComponent},
-  //     {path : 'ajouterUniversite/:id', component : AjouterUniversiteComponent},
-  //     {path : 'detailsUniversites' , component : DetailsUniversiteComponent},
-  //     {path : 'universites' , component : UniversitesComponent}
-  //   ]
-  // }
 
 
 

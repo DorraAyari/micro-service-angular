@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<div class="content-page">
+  <div class="content">
+    <div class="container-fluid">
+      <h2 class="mb-4 text-primary">Liste des Reclamation</h2>
+      <button class="btn btn-success mb-3" (click)="navigateToAjouter()">
+        <i class="fas fa-plus"></i> Ajouter une Reclamation
+      </button>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover" #ReclamationTable datatable [dtOptions]="dtOptions"
+          [dtTrigger]="dtTrigger">
+          <thead class="thead-custom">
+            <tr>
+              <th>ID Reclamation</th>
+              <th>Nom Reclamation</th>
+              <th>Description Reclamation</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Reclamation of reclamation">
+              <td>{{ Reclamation.idReclamation }}</td>
+              <td>{{ Reclamation.titreReclamation }}</td>
+              <td>{{ Reclamation.descriptionRec }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="navigateToModifier(Reclamation.idReclamation)">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deletereclamation(Reclamation.idReclamation)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

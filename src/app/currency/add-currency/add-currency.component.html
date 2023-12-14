@@ -1,0 +1,35 @@
+<div class="content-page">
+    <div class="content">
+      <div class="container-fluid">
+        <form (ngSubmit)="ajoutcurrency()" #produitForm="ngForm" class="produit-form" novalidate>
+          <div>
+            <label>Nom Currency: </label>
+            <input type="text" [(ngModel)]="newCurrency.name" name="name" class="form-control" required>
+            <div *ngIf="produitForm.controls['name'].hasError('required') && (produitForm.submitted || produitForm.controls['name'].touched)"
+              class="error-message">
+              Nom Currency est requis.
+            </div>
+          </div>
+  
+          <div>
+            <label>Description Currency: </label>
+            <input type="text" [(ngModel)]="newCurrency.code" name="code" class="form-control" required>
+            <div *ngIf="produitForm.controls['code'].hasError('required') && (produitForm.submitted || produitForm.controls['code'].touched)"
+              class="error-message">
+              Description Currency est requis.
+            </div>
+          </div>
+          <div>
+            <label>symbol Currency: </label>
+            <input type="text" [(ngModel)]="newCurrency.symbol" name="symbol" class="form-control" required>
+            <div *ngIf="produitForm.controls['symbol'].hasError('required') && (produitForm.submitted || produitForm.controls['symbol'].touched)"
+              class="error-message">
+              symbol Currency est requis.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Ajouter Currency</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

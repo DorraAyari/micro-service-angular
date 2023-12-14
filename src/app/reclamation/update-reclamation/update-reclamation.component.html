@@ -1,0 +1,29 @@
+
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+          <form (ngSubmit)="updateReclamation()" #chambreForm="ngForm" class="chambre-form" novalidate *ngIf="Reclamation">              <label>ID Chambre: </label>
+                <input type="text" [(ngModel)]="Reclamation.idReclamation" name="idProduct" class="form-control" disabled>
+  
+                <label>Titre Reclamation: </label>
+                <input type="text" [(ngModel)]="Reclamation.titreReclamation" name="titreReclamation" class="form-control" required>
+                <div *ngIf="chambreForm.controls['titreReclamation'].hasError('required') && (chambreForm.submitted || chambreForm.controls['titreReclamation'].touched)"
+                  class="error-message">
+                  Titre Reclamation est requis.
+                </div>
+  
+                <label><Div></Div>Description Reclamation: </label>
+                <input type="text" [(ngModel)]="Reclamation.descriptionRec" name="descriptionRec" class="form-control" required>
+                <div *ngIf="chambreForm.controls['descriptionRec'].hasError('required') && (chambreForm.submitted || chambreForm.controls['descriptionRec'].touched)"
+                  class="error-message">
+                  Description Reclamation est requis.
+                </div>
+              
+               
+                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  

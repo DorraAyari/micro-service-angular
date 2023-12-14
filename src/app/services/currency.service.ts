@@ -12,26 +12,28 @@ export class CurrencyService {
 
   constructor(private http: HttpClient) {}
 
-  getFoyes(): Observable<Currency[]> {
-    return this.http.get<Currency[]>(`${this.apiUrl}/foyer/findAll`);
+  ajoutcurrency(newcurrency: Currency ): Observable<Currency> {
+    const url = `${this.apiUrl}/Currency/add`;
+    return this.http.post<Currency>(url, newcurrency);
   }
-  updateFoyer(idFoyer: number, updatedFoyer: Currency): Observable<Currency> {
-    const url = `${this.apiUrl}/currency/update/${idFoyer}`;
-    return this.http.put<Currency>(url, updatedFoyer);
+
+  getCurrency(): Observable<Currency[]> {
+    return this.http.get<Currency[]>(`${this.apiUrl}/Currency/findAll`);
+  }
+  updateCurrency(id: number, updateCurrency: Currency): Observable<Currency> {
+    const url = `${this.apiUrl}/Currency/update/${id}`;
+    return this.http.put<Currency>(url, updateCurrency);
   }
    // Add a method to get a foyer by ID
-   getFoyerById(idFoyer: number): Observable<Currency> {
-    const url = `${this.apiUrl}/currency/${idFoyer}`;
+   getFoyerById(id: number): Observable<Currency> {
+    const url = `${this.apiUrl}/Currency/${id}`;
     return this.http.get<Currency>(url);
   }
-  deleteFoyer(idFoyer: number): Observable<void> {
-    const url = `${this.apiUrl}/currency/delete/${idFoyer}`;
+  deleteFoyer(id: number): Observable<void> {
+    const url = `${this.apiUrl}/Currency/delete/${id}`;
     return this.http.delete<void>(url);
   }
-  ajouterFoyer(newFoyer: Currency , id: number): Observable<Currency> {
-    const url = `${this.apiUrl}/currency/add/${id}`;
-    return this.http.post<Currency>(url, newFoyer);
-  }
+  
   
   
 }

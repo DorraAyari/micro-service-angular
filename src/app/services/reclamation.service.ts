@@ -8,30 +8,31 @@ import { Reclamation } from '../models/reclamation';
 })
 export class ReclamationService {
 
-  private baseUrl="http://localhost:8300/universite";
+  private baseUrl="http://localhost:8300";
 
   constructor(private httpClient : HttpClient) { }
 
 
   getAllUniversities() : Observable<any>{
-    return this.httpClient.get<any>(`${this.baseUrl}/findAll`);
+    return this.httpClient.get<any>(`${this.baseUrl}/Reclamation/findAll`);
   }
 
-
-  getUniversiteById(idUniversite : number) : Observable<Reclamation> {
-    return this.httpClient.get<Reclamation>(`${this.baseUrl}/findById/${idUniversite}` );
-  }
 
   saveUniversite(objUniversite : Reclamation) : Observable<Reclamation>{
-    return this.httpClient.post<Reclamation>(`${this.baseUrl}/add`, objUniversite);
+    return this.httpClient.post<Reclamation>(`${this.baseUrl}/Reclamation/add`, objUniversite);
 }
 
- updateUniversite(idUniversite : number, universite : Reclamation) : Observable<Reclamation>{
-    return this.httpClient.put<Reclamation>(`${this.baseUrl}/update/${idUniversite}`, universite);
+ updateReclamation(idReclamation : number, reclamation : Reclamation) : Observable<Reclamation>{
+    return this.httpClient.put<Reclamation>(`${this.baseUrl}/Reclamation/update/${idReclamation}`, reclamation);
 }
 
-deleteUniversite(idUniversite : number) : Observable<void>{
-    return this.httpClient.delete<void>(`${this.baseUrl}/delete/${idUniversite}`);
+getReclamationById(idReclamation: number): Observable<Reclamation> {
+  const url = `${this.baseUrl}/Reclamation/${idReclamation}`;
+  return this.httpClient.get<Reclamation>(url);
+}
+
+deleteUniversite(idReclamation : number) : Observable<void>{
+    return this.httpClient.delete<void>(`${this.baseUrl}/Reclamation/delete/${idReclamation}`);
 }
 
 
