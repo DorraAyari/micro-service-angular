@@ -48,10 +48,10 @@ export class UpdatCurrencyComponent implements OnInit {
    
     this.produitService.updateCurrency(this.Currency.id, this.Currency).subscribe(
       (updateCurrency: Currency) => {
-        console.log('Produit updated successfully', updateCurrency);
+        console.log('currency updated successfully', updateCurrency);
         Swal.fire({
           title: 'Succès!',
-          text: 'Produit mise à jour avec succès.',
+          text: 'currency mise à jour avec succès.',
           icon: 'success',
           confirmButtonText: 'OK'
         }).then(() => {

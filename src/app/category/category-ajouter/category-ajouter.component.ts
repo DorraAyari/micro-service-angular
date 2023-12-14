@@ -27,7 +27,7 @@ export class CategoryAjouterComponent {
         console.log('Blog added successfully', addedBlog);
         Swal.fire({
           title: 'Success!',
-          text: 'Blog added successfully.',
+          text: 'category added successfully.',
           icon: 'success',
           confirmButtonText: 'OK'
         }).then(() => {

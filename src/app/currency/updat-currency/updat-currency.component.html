@@ -2,8 +2,7 @@
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
-          <form (ngSubmit)="updateChambre()" #chambreForm="ngForm" class="chambre-form" novalidate *ngIf="Currency">              <label>ID Chambre: </label>
-                <input type="text" [(ngModel)]="Currency.id" name="idProduct" class="form-control" disabled>
+          <form (ngSubmit)="updateChambre()" #chambreForm="ngForm" class="chambre-form" novalidate *ngIf="Currency">             
   
                 <label>Nom Currency: </label>
                 <input type="text" [(ngModel)]="Currency.name" name="name" class="form-control" required>
@@ -13,7 +12,7 @@
                 </div>
   
                 <label><Div></Div>symbol Currency: </label>
-                <input type="text" [(ngModel)]="Currency.symbol" name="code" class="form-control" required>
+                <input type="text" [(ngModel)]="Currency.symbol" name="symbol" class="form-control" required>
                 <div *ngIf="chambreForm.controls['symbol'].hasError('required') && (chambreForm.submitted || chambreForm.controls['symbol'].touched)"
                   class="error-message">
                   symbol Currency est requis.
